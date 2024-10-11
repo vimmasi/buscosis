@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Karla", sans-serif;
+    font-weight: 500;
+    /* color: #484b5a */
+}
+
+@layer components {
+    .btn {
+        @apply min-w-24 min-h-10 h-10 border-none hover:border-none;
+    }
+
+    .btn-primary {
+        @apply bg-primary text-white;
+    }
+}
