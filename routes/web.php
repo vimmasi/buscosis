@@ -16,7 +16,7 @@ Route::get('/alunos', function () {
     ]);
 });
 
-Route::get('/alunos/{id}', function ($id) {
+Route::get('/aluno/{id}', function ($id) {
 
     $aluno = Arr::first(Aluno::all(), fn ($aluno) => $aluno['id'] == $id);
     
