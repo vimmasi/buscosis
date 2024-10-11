@@ -2,16 +2,20 @@
     <div class="w-16">
         <x-svg-logo></x-svg-logo>
     </div>
+
     <div id="nav-links"
-        class="md:static md:min-h-fit absolute bg-gray-50 min-h-[60vh] left-0 top-[-100%] w-full md:w-auto flex items-center px-5">
+        class="md:static md:min-h-fit absolute bg-gray-50 min-h-[60vh] left-0 top-[-200%] w-full md:w-auto flex items-center px-5 py-4 md:py-0">
         <ul class="flex md:items-center gap-8 md:gap-[4vw] flex-col md:flex-row">
             <li><x-nav-link href="/" :active="request()->is('/')">Início</x-nav-link></li>
             <li><x-nav-link href="/alunos" :active="request()->is('alunos')">Alunos</x-nav-link></li>
             <li><x-nav-link href="/professores" :active="request()->is('professores')">Professores</x-nav-link></li>
         </ul>
     </div>
+
     <div class="flex items-center gap-6">
         <button class="btn btn-primary">Entrar</button>
+
+        {{-- Ícone menu mobile --}}
         <button name="menu" id="menu-toggle" class="md:hidden">
             <x-svg-menu id="hamburger-icon" />
             <x-svg-menu-fechar id="close-icon" class="hidden" />
@@ -29,7 +33,14 @@
         menuToggle.addEventListener('click', function() {
             hamburgerIcon.classList.toggle('hidden');
             closeIcon.classList.toggle('hidden');
-            navLinks.classList.toggle('top-14')
+
+            if (navLinks.classList.contains('top-[-200%]')) {
+                navLinks.classList.remove('top-[-200%]');
+                navLinks.classList.add('top-14');
+            } else {
+                navLinks.classList.remove('top-14');
+                navLinks.classList.add('top-[-200%]');
+            }
         });
     });
 </script>
