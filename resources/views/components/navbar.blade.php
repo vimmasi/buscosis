@@ -1,24 +1,32 @@
 <nav class="flex items-center justify-between w-full py-2 px-4 bg-gray-50">
-    <div class="w-16">
-        <x-svg-logo></x-svg-logo>
-    </div>
+    <a href="/"><x-svg-logo /></a>
 
     <div id="nav-links"
         class="md:static md:min-h-fit absolute bg-gray-50 min-h-[60vh] left-0 top-[-200%] w-full md:w-auto flex items-center px-5 py-4 md:py-0">
-        <ul class="flex md:items-center gap-8 md:gap-[4vw] flex-col md:flex-row">
-            <li><x-nav-link href="/" :active="request()->is('/')">Início</x-nav-link></li>
-            <li><x-nav-link href="/alunos" :active="request()->is('alunos')">Alunos</x-nav-link></li>
-            <li><x-nav-link href="/professores" :active="request()->is('professores')">Professores</x-nav-link></li>
+        <ul class="flex md:items-center gap-8 md:gap-[4vw] flex-col md:flex-row ">
+            <x-nav-link href="/" :active="request()->is('/')">Início</x-nav-link>
+            <x-nav-dropdown titulo='Secretaria'>
+                <x-nav-link href="/alunos" :active="request()->is('alunos')">Alunos</x-nav-link>
+                <x-nav-link href="/professores" :active="request()->is('professores')">Professores</x-nav-link>
+            </x-nav-dropdown>
+            <x-nav-link href="/financeiro" :active="request()->is('/financeiro')">Financeiro</x-nav-link>
         </ul>
     </div>
+
+    {{-- <x-nav-link href="/alunos" :active="request()->is('alunos')">Alunos</x-nav-link>
+                    <x-nav-link href="/professores" :active="request()->is('professores')">Professores</x-nav-link> --}}
 
     <div class="flex items-center gap-6">
         <button class="btn btn-primary">Entrar</button>
 
         {{-- Ícone menu mobile --}}
-        <button name="menu" id="menu-toggle" class="md:hidden">
-            <x-svg-menu id="hamburger-icon" />
-            <x-svg-menu-fechar id="close-icon" class="hidden" />
+        <button id="menu-toggle" class="md:hidden">
+            <div id="hamburger-icon">
+                <x-svg-menu />
+            </div>
+            <div id="close-icon" class="hidden">
+                <x-svg-menu-fechar />
+            </div>
         </button>
     </div>
 </nav>

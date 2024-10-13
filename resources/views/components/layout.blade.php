@@ -14,7 +14,11 @@
         <x-navbar />
     </header>
 
-    {{ $slot }}
+    <main class="container mx-auto my-4">{{ $slot }}</main>
+
+    <footer class="h-40 sm:h-20 flex items-center justify-center mb-0 bg-gray-50 border-t-2 mt-auto">
+        <x-footer />
+    </footer>
 
 </body>
 
