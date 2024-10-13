@@ -10,8 +10,8 @@
 </head>
 
 <body class="flex flex-col min-h-screen">
-    <header>
-        <x-navbar />
+    <header class="z-50">
+        <x-navbar-v2 />
     </header>
 
     <main class="container mx-auto my-4">{{ $slot }}</main>
