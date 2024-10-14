@@ -1,3 +1,3 @@
 <x-layout>
-    <h1>Aluno page</h1>
+    {{ $aluno['nome'] }}
 </x-layout>

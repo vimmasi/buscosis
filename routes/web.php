@@ -6,7 +6,7 @@ use App\Models\Aluno;
 
 Route::get('/', function () {
     return view('home', [
-        'alunos' => Aluno::all()
+        'alunos' => Aluno::take(5)->get()
     ]);
 });
 
@@ -18,11 +18,15 @@ Route::get('/alunos', function () {
 
 Route::get('/aluno/{id}', function ($id) {
 
-    $aluno = Arr::first(Aluno::all(), fn ($aluno) => $aluno['id'] == $id);
-    
+    $aluno = Arr::first(Aluno::all(), fn($aluno) => $aluno['id'] == $id);
+
     return view('aluno', ['aluno' => $aluno]);
 });
 
 Route::get('/professores', function () {
     return view('professores');
+});
+
+Route::get('/financeiro', function () {
+    return view('financeiro');
 });

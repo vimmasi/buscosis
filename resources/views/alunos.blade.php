@@ -1,3 +1,7 @@
 <x-layout>
-    <h1>Alunos page</h1>
+    @foreach ($alunos as $aluno)
+        <ul>
+            <li>{{ $aluno['nome'] }}</li>
+        </ul>
+    @endforeach
 </x-layout>

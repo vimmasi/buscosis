@@ -7,7 +7,7 @@
 body {
     font-family: "Karla", sans-serif;
     font-weight: 500;
-    /* color: #484b5a */
+    color: #484b5a
 }
 
 @layer components {
@@ -17,5 +17,13 @@ body {
 
     .btn-primary {
         @apply bg-primary text-white;
+    }
+
+    .card {
+        @apply shadow-sm border border-gray-500/10 rounded-lg bg-white/90;
+    }
+
+    .card-title {
+        @apply px-4 py-1 bg-gray-100 rounded-t-lg;
     }
 }
